@@ -1,0 +1,5468 @@
+﻿<!DOCTYPE HTML>
+<HTML><HEAD><META content="IE=11.0000" http-equiv="X-UA-Compatible">
+
+<META name="author" content="Romax" technology=""> 
+<META charset="UTF-8"> 
+<META http-equiv="X-UA-Compatible" content="IE=Edge,10,9,8,7"> 
+<STYLE type="text/css">/*Romax Report*/
+td,th,body {font-family: sans-serif; font-size: 12px; color: #000000}
+br {clear: all;}
+caption { text-align: left; font-weight: bold; font-size: 12px; }
+hr {page-break-after: always}
+table {margin-bottom: 20; border-collapse: collapse; border: 1px solid black}
+td { text-align: center}
+tr { height: 20px; }
+tr:nth-child(even) {background-color: #f2f2f2;}
+/* tr:hover {background: yellow;} */
+body {
+    background-image:url(data:image/gif;base64,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);
+	background-repeat: no-repeat;
+	margin-top: 70px; 
+}
+* {
+    box-sizing: border-box;
+	}
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</STYLE>
+ 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<H2>CRB_Testing.rnx</H2>
+<DIV>
+<DIV>
+<H2>Rolling Bearing 1 [A new load case]</H2></DIV>
+<DIV>
+<H3>Static Analysis Results</H3>
+<P>
+<H5>No errors or warnings</H5>
+<P></P>
+<DIV>
+<H4>Operating Speed Assessment</H4>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD rowspan="5" colspan="1">
+      <DIV>Conditions (rpm)</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV>Operating speed:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">50</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Inner ring speed:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">50</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Outer ring speed:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Cage speed for row: 1</DIV></TD>
+    <TD>
+      <DIV nowrap="true">20</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Maximum speed with oil:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">16000</DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV>
+<H4>Static Load Assessment to ISO 76</H4>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD rowspan="2" colspan="1">
+      <DIV>Static load factors</DIV></TD>
+    <TD>
+      <DIV>X0:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.000</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Y0:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Static equivalent load: (N)</DIV></TD>
+    <TD>
+      <DIV>P<SUB>o</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">15138.2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>ISO 76 static safety factor (Co/Po):</DIV></TD>
+    <TD>
+      <DIV>sf</DIV></TD>
+    <TD><FONT color="black">1.784 </FONT> </TD></TR></TBODY></TABLE></DIV>
+<P>Note: Local coordinate system used below is the shaft coordinate system</P>
+<DIV>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Loads</CAPTION>
+  <TBODY>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>&nbsp;</DIV></TD>
+    <TD>
+      <DIV>Local coordinates</DIV></TD>
+    <TD>
+      <DIV>Global coordinates</DIV></TD></TR>
+  <TR>
+    <TD rowspan="5" colspan="1">
+      <DIV>Force</DIV></TD>
+    <TD>
+      <DIV>X: (N)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15138.2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15138.2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Y: (N)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Z: (N)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Radial magnitude: (N)</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV nowrap="true">15138.2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Radial angle: (deg)</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD rowspan="4" colspan="1">
+      <DIV>Moments about support centre (Nm)</DIV></TD>
+    <TD>
+      <DIV>X</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Y</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.571806</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.571806</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Z</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Radial</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV nowrap="true">9.571806</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Speed of shaft relative to housing: (rpm)</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV nowrap="true">50</DIV></TD></TR></TBODY></TABLE>
+<P></P></DIV>
+<DIV>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Displacements</CAPTION>
+  <TBODY>
+  <TR>
+    <TD rowspan="1" colspan="1">
+      <DIV>&nbsp;</DIV></TD>
+    <TD rowspan="1" colspan="3">
+      <DIV>Local coordinates</DIV></TD>
+    <TD rowspan="1" colspan="3">
+      <DIV>Global coordinates</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV>&nbsp;</DIV></TD></TR>
+  <TR>
+    <TH>
+      <DIV>&nbsp;</DIV></TH>
+    <TH>
+      <DIV>X (um)</DIV></TH>
+    <TH>
+      <DIV>Y (um)</DIV></TH>
+    <TH>
+      <DIV>Z (um)</DIV></TH>
+    <TH>
+      <DIV>X (um)</DIV></TH>
+    <TH>
+      <DIV>Y (um)</DIV></TH>
+    <TH>
+      <DIV>Z (um)</DIV></TH>
+    <TH>
+      <DIV>Radial magnitude (um)</DIV></TH>
+    <TH>
+      <DIV>Radial angle (deg)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV>Relative displacements (inner ring w/r to outer ring)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute inner displacements</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute outer displacements</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute shaft displacements</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.30</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute housing displacements</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR></TBODY></TABLE>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Misalignments</CAPTION>
+  <TBODY>
+  <TR>
+    <TD rowspan="1" colspan="1">
+      <DIV>&nbsp;</DIV></TD>
+    <TD rowspan="1" colspan="3">
+      <DIV>Local coordinates</DIV></TD>
+    <TD rowspan="1" colspan="3">
+      <DIV>Global coordinates</DIV></TD>
+    <TD rowspan="1" colspan="3">
+      <DIV>&nbsp;</DIV></TD></TR>
+  <TR>
+    <TH>
+      <DIV>&nbsp;</DIV></TH>
+    <TH>
+      <DIV>X (mrad)</DIV></TH>
+    <TH>
+      <DIV>Y (mrad)</DIV></TH>
+    <TH>
+      <DIV>Z (mrad)</DIV></TH>
+    <TH>
+      <DIV>X (mrad)</DIV></TH>
+    <TH>
+      <DIV>Y (mrad)</DIV></TH>
+    <TH>
+      <DIV>Z (mrad)</DIV></TH>
+    <TH>
+      <DIV>Radial magnitude (mrad)</DIV></TH>
+    <TH>
+      <DIV>Radial angle (deg)</DIV></TH>
+    <TH>
+      <DIV>Magnitude of misalignment normal to load direction (mrad)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV>Relative misalignments (inner ring w/r to outer ring)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.000</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute inner misalignments</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.000</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute outer misalignments</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute shaft misalignments</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.000</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.675</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Absolute housing misalignments</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR></TBODY></TABLE>
+<P></P></DIV>
+<DIV>
+<H4>Bearing stiffness at mounting node last linearised relaxed values)</H4>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Stiffness matrix diagonals (last linearised relaxed values)</CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV>&nbsp;</DIV></TD>
+    <TD>
+      <DIV>Local coordinates</DIV></TD>
+    <TD>
+      <DIV>Global coordinates</DIV></TD></TR>
+  <TR>
+    <TD><B>Fx Dx (N/mm)</B> </TD>
+    <TD>
+      <DIV nowrap="true">5.2802e5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.2802e5</DIV></TD></TR>
+  <TR>
+    <TD><B>Fy Dy (N/mm)</B> </TD>
+    <TD>
+      <DIV nowrap="true">2.6494e5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.6494e5</DIV></TD></TR>
+  <TR>
+    <TD><B>Fz Dz (N/mm)</B> </TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD><B>Mx Ax (Nmm/rad)</B> </TD>
+    <TD>
+      <DIV nowrap="true">1.2087e6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.2087e6</DIV></TD></TR>
+  <TR>
+    <TD><B>My Ay (Nmm/rad)</B> </TD>
+    <TD>
+      <DIV nowrap="true">2.6274e6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.6274e6</DIV></TD></TR>
+  <TR>
+    <TD><B>Mz Az (Nmm/rad)</B> </TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR></TBODY></TABLE></DIV>
+<P></P></DIV>
+<DIV>
+<H4>Bearing Life Summary</H4>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD rowspan="1" colspan="3">
+      <DIV>Reliability (%)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.0</DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>Life factor for reliability:</DIV></TD>
+    <TD>
+      <DIV>a<SUB>1</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.000</DIV></TD></TR>
+  <TR>
+    <TD rowspan="2" colspan="1">
+      <DIV>Modified life: (hrs)</DIV></TD>
+    <TD>
+      <DIV>ISO 281: (hrs)</DIV></TD>
+    <TD>
+      <DIV>L<SUB>10mh</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">895.6568</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>ISO 281 / TS 16281 Basic: (hrs)</DIV></TD>
+    <TD>
+      <DIV>L<SUB>10mrh</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">715.3067</DIV></TD></TR>
+  <TR>
+    <TD rowspan="2" colspan="1">
+      <DIV>Damage: (%)</DIV></TD>
+    <TD rowspan="1" colspan="2">
+      <DIV>ISO 281: (%)</DIV></TD>
+    <TD>
+      <DIV><FONT color="black" nowrap="true">0</FONT> </DIV></TD></TR>
+  <TR>
+    <TD rowspan="1" colspan="2">
+      <DIV>ISO 281 / TS 16281 Basic: (%)</DIV></TD>
+    <TD>
+      <DIV><FONT color="black" nowrap="true">0</FONT> </DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<DIV>
+<H4>ISO 281 Life Details</H4>
+<P>
+<H4>Issues encountered by ISO 281 life calculation</H4>
+<TABLE width="100%" border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>Severity</DIV></TH>
+    <TH>
+      <DIV>Message</DIV></TH>
+    <TH>
+      <DIV>Action/Description</DIV></TH></TR>
+  <TR>
+    <TD><FONT color="orange">Warning</FONT> </TD>
+    <TD>
+      <DIV>Rolling Bearing 1 [A new load case]: The life result for this bearing 
+      would improve if you used a lubricant additive to cope with low film 
+      thickness</DIV></TD>
+    <TD>
+      <DIV>Ensure suitable lubricant is used</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV>Life modification factor</DIV></TD>
+    <TD>
+      <DIV>a<SUB>ISO</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.21049</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Required lubricant viscosity</DIV></TD>
+    <TD>
+      <DIV>v1</DIV></TD>
+    <TD>
+      <DIV nowrap="true">276.613</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Contamination factor</DIV></TD>
+    <TD>
+      <DIV>e<SUB>C</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.36808</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Viscosity ratio (Kappa)</DIV></TD>
+    <TD>
+      <DIV>κ</DIV></TD>
+    <TD>
+      <DIV>0.56941</DIV></TD></TR>
+  <TR>
+    <TD rowspan="2" colspan="1">
+      <DIV>Dynamic load factors</DIV></TD>
+    <TD>
+      <DIV>X:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.000</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Y:</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Equivalent dynamic bearing load (N)</DIV></TD>
+    <TD>
+      <DIV>P</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15138.2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Ratio of dynamic equivalent load to dynamic load rating</DIV></TD>
+    <TD>
+      <DIV>P/C</DIV></TD>
+    <TD><FONT color="black">
+      <DIV nowrap="true">0.46579</DIV></FONT> </TD></TR>
+  <TR>
+    <TD>
+      <DIV>Ratio of dynamic load rating to dynamic equivalent load</DIV></TD>
+    <TD>
+      <DIV>C/P</DIV></TD>
+    <TD><FONT color="black">
+      <DIV nowrap="true">2.147</DIV></FONT> </TD></TR>
+  <TR>
+    <TD>
+      <DIV>Actual lubricant viscosity at operating temperature</DIV></TD>
+    <TD>
+      <DIV>v</DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">157.507</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Basic rating life (MRevs)</DIV></TD>
+    <TD>
+      <DIV> L<SUB>10</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV>12.765 </DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Factored life (MRevs)</DIV></TD>
+    <TD>
+      <DIV> L<SUB>10m</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV>2.687 </DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV>
+<H4>ISO 281 / TS 16281 Basic Details</H4>
+<P>
+<H4>Issues encountered by ISO TS16281 life calculation</H4>
+<TABLE width="100%" border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>Severity</DIV></TH>
+    <TH>
+      <DIV>Message</DIV></TH>
+    <TH>
+      <DIV>Action/Description</DIV></TH></TR>
+  <TR>
+    <TD><FONT color="orange">Warning</FONT> </TD>
+    <TD>
+      <DIV>Rolling Bearing 1 [A new load case]: The life result for this bearing 
+      would improve if you used a lubricant additive to cope with low film 
+      thickness</DIV></TD>
+    <TD>
+      <DIV>Ensure suitable lubricant is used</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<DIV>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV>Life modification factor</DIV></TD>
+    <TD>
+      <DIV>a<SUB>ISO</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">0.18774</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway dynamic load rating - Inner (N)</DIV></TD>
+    <TD>
+      <DIV>Q<SUB>ci</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">8165.4</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway dynamic load rating - Outer (N)</DIV></TD>
+    <TD>
+      <DIV>Q<SUB>ce</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">13681.3</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway dynamic equivalent load - Inner (N)</DIV></TD>
+    <TD>
+      <DIV>Q<SUB>ei</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">4331.1</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway dynamic equivalent load - Outer (N)</DIV></TD>
+    <TD>
+      <DIV>Q<SUB>ee</SUB> </DIV></TD>
+    <TD>
+      <DIV nowrap="true">4523.2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Viscosity ratio Kappa</DIV></TD>
+    <TD>
+      <DIV>κ</DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">0.56941</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Contamination factor</DIV></TD>
+    <TD>
+      <DIV>e<SUB>C</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">0.36808</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Fatigue load limit (N)</DIV></TD>
+    <TD>
+      <DIV>C<SUB>u</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">3400.0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Dynamic equivalent reference load (N)</DIV></TD>
+    <TD>
+      <DIV>P<SUB>ref</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">15648.4</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Reference life (MRevs)</DIV></TD>
+    <TD>
+      <DIV> L<SUB>10r</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">11.430</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Reference life (hrs)</DIV></TD>
+    <TD>
+      <DIV> L<SUB>10rh</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">3810.0123</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Modified life (MRevs)</DIV></TD>
+    <TD>
+      <DIV>L<SUB>10mr</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">2.146</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Modified life (hrs)</DIV></TD>
+    <TD>
+      <DIV>L<SUB>10mrh</SUB> </DIV></TD>
+    <TD rowspan="1" colspan="1">
+      <DIV nowrap="true">715.3067</DIV></TD></TR></TBODY></TABLE>
+<P></P></DIV></DIV></DIV>
+<DIV>
+<H4>Load Distribution</H4>
+<DIV><IMG align="absmiddle" src=""> Global Coordinate System
+<P><IMG alt="Raceway load against circumferential position (N)" src="RxD5C58_files/RxD33AF.png" 
+border="2"> </P></DIV>
+<DIV>
+<DIV>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Roller with Highest Raceway Load</CAPTION>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV>Angle: (deg)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway load (N)</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5478.0</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Roller Load Sharing</CAPTION>
+  <TBODY>
+  <TR>
+    <TH rowspan="2" colspan="1">
+      <DIV>Angular Position (deg)</DIV></TH>
+    <TH rowspan="1" colspan="2">
+      <DIV>Raceway Normal Load (N)</DIV></TH>
+    <TH rowspan="1" colspan="2">
+      <DIV>Raceway Contact Moment (Nm)</DIV></TH>
+    <TH rowspan="1" colspan="2">
+      <DIV>Raceway Contact Deflection (um)</DIV></TH>
+    <TH rowspan="1" colspan="2">
+      <DIV>Raceway Contact Tilt (mrad)</DIV></TH>
+    <TH rowspan="2" colspan="1">
+      <DIV>Centrifugal Force (N)</DIV></TH>
+    <TH rowspan="2" colspan="1">
+      <DIV>Rib Load (N)</DIV></TH></TR>
+  <TR>
+    <TH>
+      <DIV>Outer</DIV></TH>
+    <TH>
+      <DIV>Inner</DIV></TH>
+    <TH>
+      <DIV>Outer</DIV></TH>
+    <TH>
+      <DIV>Inner</DIV></TH>
+    <TH>
+      <DIV>Outer</DIV></TH>
+    <TH>
+      <DIV>Inner</DIV></TH>
+    <TH>
+      <DIV>Outer</DIV></TH>
+    <TH>
+      <DIV>Inner</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.196042</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.196042</DIV></TD>
+    <TD>
+      <DIV nowrap="true">18.95</DIV></TD>
+    <TD>
+      <DIV nowrap="true">18.95</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.837</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.837</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4401.6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4401.6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.755590</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.755590</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15.86</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15.86</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.627</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.627</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1641.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1641.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.316481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.316481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.27</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.27</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.044</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.044</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.9973e-6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.9973e-6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.85</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.85</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.22147</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.22147</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.7643e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.7643e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-17.76</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-17.76</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.65154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.65154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.7242e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.7242e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-28.49</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-28.49</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.8309e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.8309e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-34.55</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-34.55</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.784</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.784</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.8309e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.8309e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-34.55</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-34.55</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.784</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.784</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.7242e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.7242e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-28.49</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-28.49</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.7643e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.7643e-5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-17.76</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-17.76</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.65154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.65154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.9973e-6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.9973e-6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.85</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-4.85</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.22147</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.22147</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1641.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1641.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.316481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.316481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.27</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.27</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.044</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.044</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4401.6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4401.6</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.755590</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.755590</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15.86</DIV></TD>
+    <TD>
+      <DIV nowrap="true">15.86</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.627</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.627</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Reaction Loads on Raceways</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>&nbsp;</DIV></TH>
+    <TH rowspan="1" colspan="6">
+      <DIV>Local coordinates</DIV></TH>
+    <TH rowspan="1" colspan="6">
+      <DIV>Global coordinates</DIV></TH></TR>
+  <TR>
+    <TH rowspan="2" colspan="1">
+      <DIV>Angular Position (deg)</DIV></TH>
+    <TH rowspan="1" colspan="3">
+      <DIV>Outer (N)</DIV></TH>
+    <TH rowspan="1" colspan="3">
+      <DIV>Inner (N)</DIV></TH>
+    <TH rowspan="1" colspan="3">
+      <DIV>Outer (N)</DIV></TH>
+    <TH rowspan="1" colspan="3">
+      <DIV>Inner (N)</DIV></TH></TR>
+  <TR>
+    <TH>
+      <DIV>X</DIV></TH>
+    <TH>
+      <DIV>Y</DIV></TH>
+    <TH>
+      <DIV>Z</DIV></TH>
+    <TH>
+      <DIV>X</DIV></TH>
+    <TH>
+      <DIV>Y</DIV></TH>
+    <TH>
+      <DIV>Z</DIV></TH>
+    <TH>
+      <DIV>X</DIV></TH>
+    <TH>
+      <DIV>Y</DIV></TH>
+    <TH>
+      <DIV>Z</DIV></TH>
+    <TH>
+      <DIV>X</DIV></TH>
+    <TH>
+      <DIV>Y</DIV></TH>
+    <TH>
+      <DIV>Z</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV>0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5478.0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.13649</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.3641e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.6746e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.685e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.5623e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.7561e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2.3799e-3</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.9601e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">932.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-1350.9</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3897.4</DIV></TD>
+    <TD>
+      <DIV nowrap="true">-2045.5</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR></TBODY></TABLE></DIV></DIV></DIV>
+<DIV>
+<H3>Contact Stress</H3>
+<P>
+<H4>Issues encountered in contact stress analysis</H4>
+<H5>No errors or warnings</H5>
+<P></P>
+<DIV>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV>Advanced analysis run time (sec)</DIV></TD>
+    <TD>
+      <DIV>1.9e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Maximum raceway contact stress: (MPa)</DIV></TD>
+    <TD>
+      <DIV><FONT color="black" nowrap="true">3518.771831</FONT> </DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV>Raceway contact stress static safety factor</DIV></TD>
+    <TD>
+      <DIV><FONT color="black" nowrap="true">1.137</FONT> 
+</DIV></TD></TR></TBODY></TABLE>
+<H5>Note: Results are in shaft coordinate system. Rib positions are given 
+relative to the bearing.</H5>
+<DIV>
+<H4>Note: The distance along the roller shown in the following graphs and tables 
+goes in a postive direction relative to the shaft Z axis and the reference point 
+for this row is the roller left side as seen in the shaft worksheet.</H4><IMG 
+alt="Maximum Raceway Contact Stress Against Circumferential Position (MPa)" src="RxD5C58_files/RxD33CF.png" 
+border="2"> 
+<DIV><IMG alt="Inner Raceway Contact Stress" src="RxD5C58_files/RxD33EF.png" 
+border="2"> <IMG alt="Inner Raceway Contact Stress" src="RxD5C58_files/RxD341F.png" 
+border="2"> <IMG alt="Inner Raceway Contact Footprint" src="RxD5C58_files/RxD343F.png" 
+border="2"> </DIV>
+<DIV><IMG alt="Outer Raceway Contact Stress" src="RxD5C58_files/RxD3460.png" 
+border="2"> <IMG alt="Outer Raceway Contact Stress" src="RxD5C58_files/RxD349F.png" 
+border="2"> <IMG alt="Outer Raceway Contact Footprint" src="RxD5C58_files/RxD34BF.png" 
+border="2"> </DIV>
+<DIV></DIV>
+<DIV>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Maximum Raceway Stress for Each Roller Position</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>Angular Position (deg)</DIV></TH>
+    <TH>
+      <DIV>Outer Raceway Contact Stress (MPa)</DIV></TH>
+    <TH>
+      <DIV>Inner Raceway Contact Stress (MPa)</DIV></TH>
+    <TH>
+      <DIV>Outer Raceway Contact Footprint Half Width (um)</DIV></TH>
+    <TH>
+      <DIV>Inner Raceway Contact Footprint Half Width (um)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2941.960887</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3518.771831</DIV></TD>
+    <TD>
+      <DIV nowrap="true">233.55</DIV></TD>
+    <TD>
+      <DIV nowrap="true">189.22</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2611.573698</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3122.133689</DIV></TD>
+    <TD>
+      <DIV nowrap="true">207.32</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1655.809354</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1995.933033</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.45</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.33</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1655.809354</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1995.933033</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.45</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.33</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2611.573698</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3122.133689</DIV></TD>
+    <TD>
+      <DIV nowrap="true">207.32</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.89</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Roller Profile Inner Contact Results</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>Angular Position (deg)</DIV></TH>
+    <TH>
+      <DIV>Distance Along Roller (mm)</DIV></TH>
+    <TH>
+      <DIV>Contact Stress (MPa)</DIV></TH>
+    <TH>
+      <DIV>Footprint Half Width (um)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1532.785733</DIV></TD>
+    <TD>
+      <DIV nowrap="true">82.43</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1914.488826</DIV></TD>
+    <TD>
+      <DIV nowrap="true">102.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2101.562504</DIV></TD>
+    <TD>
+      <DIV nowrap="true">113.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2229.890454</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.91</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2329.412047</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.26</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2412.136007</DIV></TD>
+    <TD>
+      <DIV nowrap="true">129.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2483.924446</DIV></TD>
+    <TD>
+      <DIV nowrap="true">133.57</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2548.056499</DIV></TD>
+    <TD>
+      <DIV nowrap="true">137.02</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2606.540483</DIV></TD>
+    <TD>
+      <DIV nowrap="true">140.17</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2660.691335</DIV></TD>
+    <TD>
+      <DIV nowrap="true">143.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2711.415274</DIV></TD>
+    <TD>
+      <DIV nowrap="true">145.81</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2759.362831</DIV></TD>
+    <TD>
+      <DIV nowrap="true">148.39</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2805.016829</DIV></TD>
+    <TD>
+      <DIV nowrap="true">150.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2848.745788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">153.19</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2890.837804</DIV></TD>
+    <TD>
+      <DIV nowrap="true">155.46</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2931.522871</DIV></TD>
+    <TD>
+      <DIV nowrap="true">157.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2970.988069</DIV></TD>
+    <TD>
+      <DIV nowrap="true">159.77</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3009.388182</DIV></TD>
+    <TD>
+      <DIV nowrap="true">161.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3046.853325</DIV></TD>
+    <TD>
+      <DIV nowrap="true">163.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3083.494528</DIV></TD>
+    <TD>
+      <DIV nowrap="true">165.82</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3119.407918</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.75</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3154.677903</DIV></TD>
+    <TD>
+      <DIV nowrap="true">169.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3189.379609</DIV></TD>
+    <TD>
+      <DIV nowrap="true">171.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3223.580743</DIV></TD>
+    <TD>
+      <DIV nowrap="true">173.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3257.342924</DIV></TD>
+    <TD>
+      <DIV nowrap="true">175.16</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3290.722396</DIV></TD>
+    <TD>
+      <DIV nowrap="true">176.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3323.769775</DIV></TD>
+    <TD>
+      <DIV nowrap="true">178.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3356.527679</DIV></TD>
+    <TD>
+      <DIV nowrap="true">180.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3389.024327</DIV></TD>
+    <TD>
+      <DIV nowrap="true">182.25</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3421.237624</DIV></TD>
+    <TD>
+      <DIV nowrap="true">183.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3453.194069</DIV></TD>
+    <TD>
+      <DIV nowrap="true">185.70</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3482.102489</DIV></TD>
+    <TD>
+      <DIV nowrap="true">187.25</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3518.771831</DIV></TD>
+    <TD>
+      <DIV nowrap="true">189.22</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3446.826001</DIV></TD>
+    <TD>
+      <DIV nowrap="true">185.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">969.907643</DIV></TD>
+    <TD>
+      <DIV nowrap="true">52.16</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1546.725238</DIV></TD>
+    <TD>
+      <DIV nowrap="true">83.18</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1779.780607</DIV></TD>
+    <TD>
+      <DIV nowrap="true">95.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1931.112822</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2044.090061</DIV></TD>
+    <TD>
+      <DIV nowrap="true">109.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2135.413700</DIV></TD>
+    <TD>
+      <DIV nowrap="true">114.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2212.925272</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.00</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2280.907695</DIV></TD>
+    <TD>
+      <DIV nowrap="true">122.66</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2341.936317</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2397.672031</DIV></TD>
+    <TD>
+      <DIV nowrap="true">128.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2449.244151</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2497.452924</DIV></TD>
+    <TD>
+      <DIV nowrap="true">134.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2542.884405</DIV></TD>
+    <TD>
+      <DIV nowrap="true">136.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2585.979322</DIV></TD>
+    <TD>
+      <DIV nowrap="true">139.06</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2627.076252</DIV></TD>
+    <TD>
+      <DIV nowrap="true">141.27</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2666.439655</DIV></TD>
+    <TD>
+      <DIV nowrap="true">143.39</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2704.278611</DIV></TD>
+    <TD>
+      <DIV nowrap="true">145.42</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2740.759541</DIV></TD>
+    <TD>
+      <DIV nowrap="true">147.38</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2776.014921</DIV></TD>
+    <TD>
+      <DIV nowrap="true">149.28</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2810.149105</DIV></TD>
+    <TD>
+      <DIV nowrap="true">151.12</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2843.241966</DIV></TD>
+    <TD>
+      <DIV nowrap="true">152.90</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2875.350612</DIV></TD>
+    <TD>
+      <DIV nowrap="true">154.62</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2906.509192</DIV></TD>
+    <TD>
+      <DIV nowrap="true">156.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2936.726359</DIV></TD>
+    <TD>
+      <DIV nowrap="true">157.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2965.979429</DIV></TD>
+    <TD>
+      <DIV nowrap="true">159.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2994.203121</DIV></TD>
+    <TD>
+      <DIV nowrap="true">161.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3021.268582</DIV></TD>
+    <TD>
+      <DIV nowrap="true">162.47</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3046.943060</DIV></TD>
+    <TD>
+      <DIV nowrap="true">163.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3070.808879</DIV></TD>
+    <TD>
+      <DIV nowrap="true">165.13</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3092.058987</DIV></TD>
+    <TD>
+      <DIV nowrap="true">166.28</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3109.249760</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.20</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3115.201830</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.52</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3122.133689</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2792.188892</DIV></TD>
+    <TD>
+      <DIV nowrap="true">150.15</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">611.070640</DIV></TD>
+    <TD>
+      <DIV nowrap="true">32.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">903.633954</DIV></TD>
+    <TD>
+      <DIV nowrap="true">48.59</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1080.266715</DIV></TD>
+    <TD>
+      <DIV nowrap="true">58.09</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1209.539699</DIV></TD>
+    <TD>
+      <DIV nowrap="true">65.04</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1311.694183</DIV></TD>
+    <TD>
+      <DIV nowrap="true">70.54</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1396.239517</DIV></TD>
+    <TD>
+      <DIV nowrap="true">75.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1468.409050</DIV></TD>
+    <TD>
+      <DIV nowrap="true">78.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1531.386324</DIV></TD>
+    <TD>
+      <DIV nowrap="true">82.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1587.242389</DIV></TD>
+    <TD>
+      <DIV nowrap="true">85.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1637.390465</DIV></TD>
+    <TD>
+      <DIV nowrap="true">88.05</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1682.828473</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.49</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1724.277688</DIV></TD>
+    <TD>
+      <DIV nowrap="true">92.72</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1762.266071</DIV></TD>
+    <TD>
+      <DIV nowrap="true">94.77</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1797.180071</DIV></TD>
+    <TD>
+      <DIV nowrap="true">96.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1829.297251</DIV></TD>
+    <TD>
+      <DIV nowrap="true">98.37</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1858.806410</DIV></TD>
+    <TD>
+      <DIV nowrap="true">99.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1885.818787</DIV></TD>
+    <TD>
+      <DIV nowrap="true">101.41</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1910.372040</DIV></TD>
+    <TD>
+      <DIV nowrap="true">102.73</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1932.427292</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1951.858148</DIV></TD>
+    <TD>
+      <DIV nowrap="true">104.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1968.428765</DIV></TD>
+    <TD>
+      <DIV nowrap="true">105.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1981.754899</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.57</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1991.235920</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1995.933033</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.33</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1994.339212</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.25</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1983.909387</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.69</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1959.984474</DIV></TD>
+    <TD>
+      <DIV nowrap="true">105.40</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1912.984701</DIV></TD>
+    <TD>
+      <DIV nowrap="true">102.87</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1817.471837</DIV></TD>
+    <TD>
+      <DIV nowrap="true">97.73</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1588.344475</DIV></TD>
+    <TD>
+      <DIV nowrap="true">85.41</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">611.070640</DIV></TD>
+    <TD>
+      <DIV nowrap="true">32.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">903.633954</DIV></TD>
+    <TD>
+      <DIV nowrap="true">48.59</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1080.266715</DIV></TD>
+    <TD>
+      <DIV nowrap="true">58.09</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1209.539699</DIV></TD>
+    <TD>
+      <DIV nowrap="true">65.04</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1311.694183</DIV></TD>
+    <TD>
+      <DIV nowrap="true">70.54</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1396.239517</DIV></TD>
+    <TD>
+      <DIV nowrap="true">75.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1468.409050</DIV></TD>
+    <TD>
+      <DIV nowrap="true">78.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1531.386324</DIV></TD>
+    <TD>
+      <DIV nowrap="true">82.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1587.242389</DIV></TD>
+    <TD>
+      <DIV nowrap="true">85.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1637.390465</DIV></TD>
+    <TD>
+      <DIV nowrap="true">88.05</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1682.828473</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.49</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1724.277688</DIV></TD>
+    <TD>
+      <DIV nowrap="true">92.72</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1762.266071</DIV></TD>
+    <TD>
+      <DIV nowrap="true">94.77</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1797.180071</DIV></TD>
+    <TD>
+      <DIV nowrap="true">96.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1829.297251</DIV></TD>
+    <TD>
+      <DIV nowrap="true">98.37</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1858.806410</DIV></TD>
+    <TD>
+      <DIV nowrap="true">99.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1885.818787</DIV></TD>
+    <TD>
+      <DIV nowrap="true">101.41</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1910.372040</DIV></TD>
+    <TD>
+      <DIV nowrap="true">102.73</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1932.427292</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1951.858148</DIV></TD>
+    <TD>
+      <DIV nowrap="true">104.96</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1968.428765</DIV></TD>
+    <TD>
+      <DIV nowrap="true">105.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1981.754899</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.57</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1991.235920</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1995.933033</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.33</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1994.339212</DIV></TD>
+    <TD>
+      <DIV nowrap="true">107.25</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1983.909387</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.69</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1959.984474</DIV></TD>
+    <TD>
+      <DIV nowrap="true">105.40</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1912.984701</DIV></TD>
+    <TD>
+      <DIV nowrap="true">102.87</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1817.471837</DIV></TD>
+    <TD>
+      <DIV nowrap="true">97.73</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1588.344475</DIV></TD>
+    <TD>
+      <DIV nowrap="true">85.41</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">969.907643</DIV></TD>
+    <TD>
+      <DIV nowrap="true">52.16</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1546.725238</DIV></TD>
+    <TD>
+      <DIV nowrap="true">83.18</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1779.780607</DIV></TD>
+    <TD>
+      <DIV nowrap="true">95.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1931.112822</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2044.090061</DIV></TD>
+    <TD>
+      <DIV nowrap="true">109.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2135.413700</DIV></TD>
+    <TD>
+      <DIV nowrap="true">114.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2212.925272</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.00</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2280.907695</DIV></TD>
+    <TD>
+      <DIV nowrap="true">122.66</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2341.936317</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2397.672031</DIV></TD>
+    <TD>
+      <DIV nowrap="true">128.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2449.244151</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2497.452924</DIV></TD>
+    <TD>
+      <DIV nowrap="true">134.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2542.884405</DIV></TD>
+    <TD>
+      <DIV nowrap="true">136.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2585.979322</DIV></TD>
+    <TD>
+      <DIV nowrap="true">139.06</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2627.076252</DIV></TD>
+    <TD>
+      <DIV nowrap="true">141.27</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2666.439655</DIV></TD>
+    <TD>
+      <DIV nowrap="true">143.39</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2704.278611</DIV></TD>
+    <TD>
+      <DIV nowrap="true">145.42</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2740.759541</DIV></TD>
+    <TD>
+      <DIV nowrap="true">147.38</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2776.014921</DIV></TD>
+    <TD>
+      <DIV nowrap="true">149.28</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2810.149105</DIV></TD>
+    <TD>
+      <DIV nowrap="true">151.12</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2843.241966</DIV></TD>
+    <TD>
+      <DIV nowrap="true">152.90</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2875.350612</DIV></TD>
+    <TD>
+      <DIV nowrap="true">154.62</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2906.509192</DIV></TD>
+    <TD>
+      <DIV nowrap="true">156.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2936.726359</DIV></TD>
+    <TD>
+      <DIV nowrap="true">157.92</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2965.979429</DIV></TD>
+    <TD>
+      <DIV nowrap="true">159.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2994.203121</DIV></TD>
+    <TD>
+      <DIV nowrap="true">161.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3021.268582</DIV></TD>
+    <TD>
+      <DIV nowrap="true">162.47</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3046.943060</DIV></TD>
+    <TD>
+      <DIV nowrap="true">163.85</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3070.808879</DIV></TD>
+    <TD>
+      <DIV nowrap="true">165.13</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3092.058987</DIV></TD>
+    <TD>
+      <DIV nowrap="true">166.28</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3109.249760</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.20</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3115.201830</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.52</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3122.133689</DIV></TD>
+    <TD>
+      <DIV nowrap="true">167.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2792.188892</DIV></TD>
+    <TD>
+      <DIV nowrap="true">150.15</DIV></TD></TR></TBODY></TABLE>
+<P></P>
+<P>
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <CAPTION>Roller Profile Outer Contact Results</CAPTION>
+  <TBODY>
+  <TR>
+    <TH>
+      <DIV>Angular Position (deg)</DIV></TH>
+    <TH>
+      <DIV>Distance Along Roller (mm)</DIV></TH>
+    <TH>
+      <DIV>Contact Stress (MPa)</DIV></TH>
+    <TH>
+      <DIV>Footprint Half Width (um)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1097.812738</DIV></TD>
+    <TD>
+      <DIV nowrap="true">87.15</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1504.758278</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.46</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1678.114542</DIV></TD>
+    <TD>
+      <DIV nowrap="true">133.22</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1795.212362</DIV></TD>
+    <TD>
+      <DIV nowrap="true">142.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1884.624035</DIV></TD>
+    <TD>
+      <DIV nowrap="true">149.61</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1958.267548</DIV></TD>
+    <TD>
+      <DIV nowrap="true">155.46</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2021.764894</DIV></TD>
+    <TD>
+      <DIV nowrap="true">160.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2078.222402</DIV></TD>
+    <TD>
+      <DIV nowrap="true">164.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2129.522712</DIV></TD>
+    <TD>
+      <DIV nowrap="true">169.05</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2176.889066</DIV></TD>
+    <TD>
+      <DIV nowrap="true">172.81</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2221.159492</DIV></TD>
+    <TD>
+      <DIV nowrap="true">176.33</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2262.932793</DIV></TD>
+    <TD>
+      <DIV nowrap="true">179.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2302.651831</DIV></TD>
+    <TD>
+      <DIV nowrap="true">182.80</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2340.653758</DIV></TD>
+    <TD>
+      <DIV nowrap="true">185.81</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2377.201737</DIV></TD>
+    <TD>
+      <DIV nowrap="true">188.71</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2412.505757</DIV></TD>
+    <TD>
+      <DIV nowrap="true">191.52</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2446.736777</DIV></TD>
+    <TD>
+      <DIV nowrap="true">194.23</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2480.036612</DIV></TD>
+    <TD>
+      <DIV nowrap="true">196.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2512.525064</DIV></TD>
+    <TD>
+      <DIV nowrap="true">199.46</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2544.305201</DIV></TD>
+    <TD>
+      <DIV nowrap="true">201.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2575.467405</DIV></TD>
+    <TD>
+      <DIV nowrap="true">204.45</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2606.092590</DIV></TD>
+    <TD>
+      <DIV nowrap="true">206.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2636.254895</DIV></TD>
+    <TD>
+      <DIV nowrap="true">209.28</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2666.024096</DIV></TD>
+    <TD>
+      <DIV nowrap="true">211.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2695.467976</DIV></TD>
+    <TD>
+      <DIV nowrap="true">213.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2724.654916</DIV></TD>
+    <TD>
+      <DIV nowrap="true">216.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2753.657122</DIV></TD>
+    <TD>
+      <DIV nowrap="true">218.60</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2782.555067</DIV></TD>
+    <TD>
+      <DIV nowrap="true">220.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2811.445831</DIV></TD>
+    <TD>
+      <DIV nowrap="true">223.19</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2840.439345</DIV></TD>
+    <TD>
+      <DIV nowrap="true">225.49</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2869.899035</DIV></TD>
+    <TD>
+      <DIV nowrap="true">227.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2897.390644</DIV></TD>
+    <TD>
+      <DIV nowrap="true">230.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2941.960887</DIV></TD>
+    <TD>
+      <DIV nowrap="true">233.55</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2844.832561</DIV></TD>
+    <TD>
+      <DIV nowrap="true">225.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">590.321228</DIV></TD>
+    <TD>
+      <DIV nowrap="true">46.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1192.508668</DIV></TD>
+    <TD>
+      <DIV nowrap="true">94.67</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1411.502984</DIV></TD>
+    <TD>
+      <DIV nowrap="true">112.05</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1549.581144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">123.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1651.048911</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.07</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1732.271786</DIV></TD>
+    <TD>
+      <DIV nowrap="true">137.52</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1800.748577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">142.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1860.514488</DIV></TD>
+    <TD>
+      <DIV nowrap="true">147.70</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1913.969937</DIV></TD>
+    <TD>
+      <DIV nowrap="true">151.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1962.650690</DIV></TD>
+    <TD>
+      <DIV nowrap="true">155.80</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2007.594615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">159.37</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2049.533705</DIV></TD>
+    <TD>
+      <DIV nowrap="true">162.70</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2089.002131</DIV></TD>
+    <TD>
+      <DIV nowrap="true">165.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2126.400612</DIV></TD>
+    <TD>
+      <DIV nowrap="true">168.80</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2162.036562</DIV></TD>
+    <TD>
+      <DIV nowrap="true">171.63</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2196.150082</DIV></TD>
+    <TD>
+      <DIV nowrap="true">174.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2228.931279</DIV></TD>
+    <TD>
+      <DIV nowrap="true">176.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2260.532060</DIV></TD>
+    <TD>
+      <DIV nowrap="true">179.45</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2291.074237</DIV></TD>
+    <TD>
+      <DIV nowrap="true">181.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2320.655041</DIV></TD>
+    <TD>
+      <DIV nowrap="true">184.22</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2349.350710</DIV></TD>
+    <TD>
+      <DIV nowrap="true">186.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2377.218441</DIV></TD>
+    <TD>
+      <DIV nowrap="true">188.72</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2404.296791</DIV></TD>
+    <TD>
+      <DIV nowrap="true">190.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2430.604264</DIV></TD>
+    <TD>
+      <DIV nowrap="true">192.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2456.135402</DIV></TD>
+    <TD>
+      <DIV nowrap="true">194.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2480.852904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">196.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2504.672664</DIV></TD>
+    <TD>
+      <DIV nowrap="true">198.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2527.434741</DIV></TD>
+    <TD>
+      <DIV nowrap="true">200.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2548.845788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">202.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2568.323038</DIV></TD>
+    <TD>
+      <DIV nowrap="true">203.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2584.941084</DIV></TD>
+    <TD>
+      <DIV nowrap="true">205.21</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2592.156272</DIV></TD>
+    <TD>
+      <DIV nowrap="true">205.78</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2611.573698</DIV></TD>
+    <TD>
+      <DIV nowrap="true">207.32</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">27.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2271.481166</DIV></TD>
+    <TD>
+      <DIV nowrap="true">180.32</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">385.026941</DIV></TD>
+    <TD>
+      <DIV nowrap="true">30.57</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">687.068367</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.54</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">851.526994</DIV></TD>
+    <TD>
+      <DIV nowrap="true">67.60</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">968.486845</DIV></TD>
+    <TD>
+      <DIV nowrap="true">76.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1059.551384</DIV></TD>
+    <TD>
+      <DIV nowrap="true">84.11</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1134.232158</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.04</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1197.585377</DIV></TD>
+    <TD>
+      <DIV nowrap="true">95.07</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1252.622105</DIV></TD>
+    <TD>
+      <DIV nowrap="true">99.44</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1301.273146</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1344.842589</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.76</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1384.244527</DIV></TD>
+    <TD>
+      <DIV nowrap="true">109.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1420.136260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">112.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1452.997435</DIV></TD>
+    <TD>
+      <DIV nowrap="true">115.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1483.178842</DIV></TD>
+    <TD>
+      <DIV nowrap="true">117.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1510.933015</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1536.433130</DIV></TD>
+    <TD>
+      <DIV nowrap="true">121.97</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1559.783675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">123.82</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1581.024569</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1600.129097</DIV></TD>
+    <TD>
+      <DIV nowrap="true">127.03</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1616.994793</DIV></TD>
+    <TD>
+      <DIV nowrap="true">128.36</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1631.424732</DIV></TD>
+    <TD>
+      <DIV nowrap="true">129.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1643.093973</DIV></TD>
+    <TD>
+      <DIV nowrap="true">130.44</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1651.490584</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.10</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1655.809354</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.45</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1654.749670</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.36</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1646.099169</DIV></TD>
+    <TD>
+      <DIV nowrap="true">130.68</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1625.772694</DIV></TD>
+    <TD>
+      <DIV nowrap="true">129.06</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1585.213776</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1502.013251</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.24</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1281.786399</DIV></TD>
+    <TD>
+      <DIV nowrap="true">101.75</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">55.385</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">83.077</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">110.769</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">138.462</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">166.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">193.846</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">221.538</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">249.231</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">276.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">385.026941</DIV></TD>
+    <TD>
+      <DIV nowrap="true">30.57</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">687.068367</DIV></TD>
+    <TD>
+      <DIV nowrap="true">54.54</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">851.526994</DIV></TD>
+    <TD>
+      <DIV nowrap="true">67.60</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">968.486845</DIV></TD>
+    <TD>
+      <DIV nowrap="true">76.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1059.551384</DIV></TD>
+    <TD>
+      <DIV nowrap="true">84.11</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1134.232158</DIV></TD>
+    <TD>
+      <DIV nowrap="true">90.04</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1197.585377</DIV></TD>
+    <TD>
+      <DIV nowrap="true">95.07</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1252.622105</DIV></TD>
+    <TD>
+      <DIV nowrap="true">99.44</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1301.273146</DIV></TD>
+    <TD>
+      <DIV nowrap="true">103.30</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1344.842589</DIV></TD>
+    <TD>
+      <DIV nowrap="true">106.76</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1384.244527</DIV></TD>
+    <TD>
+      <DIV nowrap="true">109.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1420.136260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">112.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1452.997435</DIV></TD>
+    <TD>
+      <DIV nowrap="true">115.35</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1483.178842</DIV></TD>
+    <TD>
+      <DIV nowrap="true">117.74</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1510.933015</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1536.433130</DIV></TD>
+    <TD>
+      <DIV nowrap="true">121.97</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1559.783675</DIV></TD>
+    <TD>
+      <DIV nowrap="true">123.82</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1581.024569</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1600.129097</DIV></TD>
+    <TD>
+      <DIV nowrap="true">127.03</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1616.994793</DIV></TD>
+    <TD>
+      <DIV nowrap="true">128.36</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1631.424732</DIV></TD>
+    <TD>
+      <DIV nowrap="true">129.51</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1643.093973</DIV></TD>
+    <TD>
+      <DIV nowrap="true">130.44</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1651.490584</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.10</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1655.809354</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.45</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1654.749670</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.36</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1646.099169</DIV></TD>
+    <TD>
+      <DIV nowrap="true">130.68</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1625.772694</DIV></TD>
+    <TD>
+      <DIV nowrap="true">129.06</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1585.213776</DIV></TD>
+    <TD>
+      <DIV nowrap="true">125.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1502.013251</DIV></TD>
+    <TD>
+      <DIV nowrap="true">119.24</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1281.786399</DIV></TD>
+    <TD>
+      <DIV nowrap="true">101.75</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">304.615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">590.321228</DIV></TD>
+    <TD>
+      <DIV nowrap="true">46.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1192.508668</DIV></TD>
+    <TD>
+      <DIV nowrap="true">94.67</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1411.502984</DIV></TD>
+    <TD>
+      <DIV nowrap="true">112.05</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1549.581144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">123.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1651.048911</DIV></TD>
+    <TD>
+      <DIV nowrap="true">131.07</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1732.271786</DIV></TD>
+    <TD>
+      <DIV nowrap="true">137.52</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1800.748577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">142.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1860.514488</DIV></TD>
+    <TD>
+      <DIV nowrap="true">147.70</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1913.969937</DIV></TD>
+    <TD>
+      <DIV nowrap="true">151.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1962.650690</DIV></TD>
+    <TD>
+      <DIV nowrap="true">155.80</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2007.594615</DIV></TD>
+    <TD>
+      <DIV nowrap="true">159.37</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2049.533705</DIV></TD>
+    <TD>
+      <DIV nowrap="true">162.70</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2089.002131</DIV></TD>
+    <TD>
+      <DIV nowrap="true">165.84</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2126.400612</DIV></TD>
+    <TD>
+      <DIV nowrap="true">168.80</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2162.036562</DIV></TD>
+    <TD>
+      <DIV nowrap="true">171.63</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2196.150082</DIV></TD>
+    <TD>
+      <DIV nowrap="true">174.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2228.931279</DIV></TD>
+    <TD>
+      <DIV nowrap="true">176.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2260.532060</DIV></TD>
+    <TD>
+      <DIV nowrap="true">179.45</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2291.074237</DIV></TD>
+    <TD>
+      <DIV nowrap="true">181.88</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2320.655041</DIV></TD>
+    <TD>
+      <DIV nowrap="true">184.22</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2349.350710</DIV></TD>
+    <TD>
+      <DIV nowrap="true">186.50</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2377.218441</DIV></TD>
+    <TD>
+      <DIV nowrap="true">188.72</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2404.296791</DIV></TD>
+    <TD>
+      <DIV nowrap="true">190.86</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2430.604264</DIV></TD>
+    <TD>
+      <DIV nowrap="true">192.95</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2456.135402</DIV></TD>
+    <TD>
+      <DIV nowrap="true">194.98</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2480.852904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">196.94</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2504.672664</DIV></TD>
+    <TD>
+      <DIV nowrap="true">198.83</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2527.434741</DIV></TD>
+    <TD>
+      <DIV nowrap="true">200.64</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2548.845788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">202.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2568.323038</DIV></TD>
+    <TD>
+      <DIV nowrap="true">203.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2584.941084</DIV></TD>
+    <TD>
+      <DIV nowrap="true">205.21</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2592.156272</DIV></TD>
+    <TD>
+      <DIV nowrap="true">205.78</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2611.573698</DIV></TD>
+    <TD>
+      <DIV nowrap="true">207.32</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">332.308</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2271.481166</DIV></TD>
+    <TD>
+      <DIV nowrap="true">180.32</DIV></TD></TR></TBODY></TABLE>
+<P></P></DIV></DIV>
+<DIV><IMG alt="Conjugate Contact Profile" src="RxD5C58_files/RxD34EF.png" 
+border="2"> 
+<TABLE border="3" cellspacing="1" cellpadding="1">
+  <TBODY>
+  <TR>
+    <TH rowspan="1" colspan="2">
+      <DIV>Inner</DIV></TH>
+    <TH rowspan="1" colspan="2">
+      <DIV>Outer</DIV></TH></TR>
+  <TR>
+    <TH>
+      <DIV>Roller Length Position (mm)</DIV></TH>
+    <TH>
+      <DIV>Conjugate Contact Profile (um)</DIV></TH>
+    <TH>
+      <DIV>Roller Length Position (mm)</DIV></TH>
+    <TH>
+      <DIV>Conjugate Contact Profile (um)</DIV></TH></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.11</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.49057</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.11</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.89</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.71171</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.34</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.93286</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.34</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.154</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.63</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.375</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.63</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.08</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.596</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.65</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.817</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.65</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.29</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.039</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.29</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.01</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.260</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.76723</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.481</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.76723</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.57061</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.702</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.57061</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.40927</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.923</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.40927</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.2787</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.144</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.2787</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.17561</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.365</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.17561</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.7619e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.587</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.7619e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.3027e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.808</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.3027e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.0704e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.029</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.0704e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.250</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.0704e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.471</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.0704e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.3027e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.692</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.3027e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.7619e-2</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.913</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.7619e-2</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.17561</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.135</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.17561</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.2787</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.356</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.2787</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.40927</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.577</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.40927</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.57061</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.798</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.57061</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.76723</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.019</DIV></TD>
+    <TD>
+      <DIV nowrap="true">0.76723</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.01</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.240</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.01</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.29</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.461</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.29</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.65</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.683</DIV></TD>
+    <TD>
+      <DIV nowrap="true">1.65</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.08</DIV></TD>
+    <TD>
+      <DIV nowrap="true">6.904</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.08</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.63</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.125</DIV></TD>
+    <TD>
+      <DIV nowrap="true">2.63</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.34</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.346</DIV></TD>
+    <TD>
+      <DIV nowrap="true">3.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.34</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.567</DIV></TD>
+    <TD>
+      <DIV nowrap="true">4.34</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.89</DIV></TD>
+    <TD>
+      <DIV nowrap="true">7.788</DIV></TD>
+    <TD>
+      <DIV nowrap="true">5.89</DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.11</DIV></TD>
+    <TD>
+      <DIV nowrap="true">8.009</DIV></TD>
+    <TD>
+      <DIV nowrap="true">9.11</DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV>
+<H3>Raceway Subsurface Stress</H3>To enable subsurface stress calculations for 
+roller bearings, please use the settings "Use enhanced contact analysis" and 
+"Calculate raceway subsurface stress for roller bearings" in the Bearings 
+Advanced section.</DIV></DIV></DIV>
+<DIV>&nbsp;<BR><BR>Romax DT 2021.0.0 build 127<BR><BR>File: 
+C:\Users\sapdhass\Desktop\Bearing Profile\CRB_Testing.rnx, Revision: 2<BR><BR>
+05/06/2022 09:08:08 AM</DIV></BODY></HTML>
